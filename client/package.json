@@ -16,11 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "skipFiles": [
-      "${workspaceFolder}/node_modules/**/*.js",
-      "<node_internals>/**/*.js"
-    ]
+    "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": "react-app"
