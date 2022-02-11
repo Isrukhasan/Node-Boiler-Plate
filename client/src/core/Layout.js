@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAuth, signout } from '../auth/helpers';
+import Private from './Private';
+
 
 const Layout = ({ children, match, history }) => {
     const isActive = path => {
