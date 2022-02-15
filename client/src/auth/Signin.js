@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Layout from '../core/Layout';
 import axios from 'axios';
-
+import { authenticate, isAuth } from './helpers';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { authenticate, isAuth } from './helpers';
 
-const Signin = () => {
+const Signin = ({history}) => {
     const [values, setValues] = useState({
-        email: 'lorore5631@alfaceti.com',
-        password: 'lorore5631@alfaceti.com',
+        email: 'faminix618@goonby.com',
+        password: 'faminix618@goonby.com',
         buttonText: 'Submit'
     });
 
@@ -31,13 +30,13 @@ const Signin = () => {
         })
             .then(response => {
                 console.log('SIGNIN SUCCESS', response);
-                authenticate(response,()=>{
-                    setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
-                    toast.success(`Hey ${response.data.user.name}, Welcome back!`);
-
-                });
                 // save the response (user, token) localstorage/cookie
-               
+                authenticate(response, () => {
+                    setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
+                    // toast.success(`Hey ${response.data.user.name}, Welcome back!`);
+                    isAuth() && isAuth().role === 'admin' ? history.push('/admin') :history.push('/private');
+                  
+                });
             })
             .catch(error => {
                 console.log('SIGNIN ERROR', error.response.data);

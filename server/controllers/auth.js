@@ -26,8 +26,10 @@ exports.signup=(req,res)=>{
         to: email, // WHO SHOULD BE RECEIVING THIS EMAIL? IT SHOULD BE THE USER EMAIL (VALID EMAIL ADDRESS) WHO IS TRYING TO SIGNUP
         subject: "ACCOUNT ACTIVATION LINK",
         html: `
+                  <tr>
+                   <td>http://localhost:3000/auth/activate/${token}</td>
+                  </tr>
                   
-                  http://localhost:3000/auth/activate/${token}
                   
               `,
     };

@@ -5,13 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-node",
-            "request": "launch",
-            "name": "Launch Program",
+            "name": "launch",
+            "port": 9229,
+            "request": "attach",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\client\\src\\auth\\helpers.js"
-        }
-    ]
+            "type": "pwa-node"
+        },
+    {
+        "name": "Attach to Chrome",
+        "port": 3000,
+        "request": "launch",
+        "type": "pwa-chrome",
+        "webRoot": "http://localhost:3000",
+        "skipFiles": [
+            "<node_internals>/**"
+        ]
+    }
+]
+        
+    
 }
