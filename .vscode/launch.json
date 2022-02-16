@@ -1,29 +1,26 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
     "configurations": [
         {
-            "name": "launch",
-            "port": 9229,
-            "request": "attach",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js",
+            "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "type": "pwa-node"
         },
     {
-        "name": "Attach to Chrome",
-        "port": 3000,
+        "name": "Launch Chrome",
         "request": "launch",
         "type": "pwa-chrome",
-        "webRoot": "http://localhost:3000",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
     }
-]
+    ]
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    
         
     
 }

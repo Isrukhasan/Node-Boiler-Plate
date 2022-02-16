@@ -7,7 +7,8 @@ require('dotenv').config()
 const app=express();
 
 //import route
-const authRoutes=require('./routes/auth')
+const authRoutes=require('./routes/auth');
+const userRoutes=require('./routes/user');
 
 //app middlewares
 app.use(morgan('dev'));
@@ -19,7 +20,8 @@ if((process.env.NODE_ENV='development')){
 }
 
 //middlewares
-app.use('/api',authRoutes)
+app.use('/api',authRoutes);
+app.use('/api',userRoutes) ;
 
 //DB
 mongoose.connect(process.env.DATABASE,{
